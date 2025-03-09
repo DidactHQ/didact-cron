@@ -52,7 +52,7 @@
     public static class CronMinutelyPresent
     {
         public const string Key = CronPresets.Minutely;
-        public const string CronExpression = "0 0 * * * *";
+        public const string CronExpression = "0 * * * * *";
     }
 
     public static class CronSecondlyPreset
