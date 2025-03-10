@@ -50,33 +50,37 @@
                         allowedValues.Add(i);
                 }
 
-                // Handle nth day of month.
-                else if (part.Contains("#") && isDayField)
-                {
-                    var split = part.Split('#');
-                    int weekday = int.Parse(split[0]);
-                    int occurrence = int.Parse(split[1]);
+                #region TODO Possibly implement later
 
-                    DateTime date = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
-                    int count = 0;
-                    while (date.Month == DateTime.UtcNow.Month)
-                    {
-                        if ((int)date.DayOfWeek == weekday) count++;
-                        if (count == occurrence)
-                        {
-                            allowedValues.Add(date.Day);
-                            break;
-                        }
-                        date = date.AddDays(1);
-                    }
-                }
+                // Handle nth day of month.
+                //else if (part.Contains("#") && isDayField)
+                //{
+                //    var split = part.Split('#');
+                //    int weekday = int.Parse(split[0]);
+                //    int occurrence = int.Parse(split[1]);
+
+                //    DateTime date = new DateTime(DateTime.UtcNow.Year, DateTime.UtcNow.Month, 1);
+                //    int count = 0;
+                //    while (date.Month == DateTime.UtcNow.Month)
+                //    {
+                //        if ((int)date.DayOfWeek == weekday) count++;
+                //        if (count == occurrence)
+                //        {
+                //            allowedValues.Add(date.Day);
+                //            break;
+                //        }
+                //        date = date.AddDays(1);
+                //    }
+                //}
 
                 // Handle last day of month.
-                else if (part == "L" && isDayField)
-                {
-                    int lastDay = DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month);
-                    allowedValues.Add(lastDay);
-                }
+                //else if (part == "L" && isDayField)
+                //{
+                //    int lastDay = DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month);
+                //    allowedValues.Add(lastDay);
+                //}
+
+                #endregion
 
                 // Handle plain integer.
                 else
